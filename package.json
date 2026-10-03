@@ -1,0 +1,23 @@
+{
+  "name": "digital-climate-change-monitoring",
+  "version": "1.0.0",
+  "description": "Digital Climate Change Monitoring: Tracking Temperature and Rainfall Trends - College Environmental Studies CA Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "node server.js",
+    "py-start": "python server.py"
+  },
+  "keywords": [
+    "climate-change",
+    "environmental-studies",
+    "temperature-monitoring",
+    "rainfall-tracking",
+    "iot-meteorology",
+    "chartjs",
+    "canvas-weather",
+    "che-110"
+  ],
+  "author": "Environmental Studies Student",
+  "license": "MIT"
+}

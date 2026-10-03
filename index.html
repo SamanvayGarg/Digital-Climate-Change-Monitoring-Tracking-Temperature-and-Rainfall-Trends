@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Digital Climate Change Monitoring: Tracking Temperature and Rainfall Trends - College Environmental Studies CA Project demonstrating IoT sensors, weather satellites, and climate trend analysis.">
+  <meta name="keywords"
+    content="Climate Change, Temperature Monitoring, Rainfall Tracking, Environmental Studies, Digital Weather Stations, IoT Climate, CHE 110">
+  <meta name="author" content="Environmental Studies CA Student">
+  <title>Digital Climate Change Monitoring: Tracking Temperature and Rainfall Trends</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/weather-effects.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+
+  <!-- Chart.js (Local Vendor bundle with CDN fallback) -->
+  <script src="js/vendor/chart.umd.min.js"></script>
+  <script>
+    if (typeof Chart === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js"><\/script>');
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- =========================================================================
+       NAVIGATION BAR (Sticky & Responsive)
+       ========================================================================= -->
+  <header class="navbar" id="mainNavbar">
+    <div class="container nav-container">
+      <a href="#home" class="nav-logo" aria-label="Digital Climate Monitoring Home">
+        <div class="logo-icon-wrap">🌱</div>
+        <div class="logo-text-group">
+          <span class="brand-title">Digital Climate Monitoring</span>
+          <span class="brand-tagline">Environmental Studies CA</span>
+        </div>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <nav>
+        <ul class="nav-links" id="navLinksList">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#climate-change" class="nav-link">Climate Change</a></li>
+          <li><a href="#temperature" class="nav-link">Temperature</a></li>
+          <li><a href="#rainfall" class="nav-link">Rainfall</a></li>
+          <li><a href="#monitoring" class="nav-link">Monitoring</a></li>
+          <li><a href="#technology" class="nav-link">Technology</a></li>
+          <li><a href="#solutions" class="nav-link">Solutions</a></li>
+          <li><a href="#quiz" class="nav-link">Quiz</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#monitoring" class="nav-link nav-cta-btn">Live Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       SECTION 1: HERO SECTION
+       ========================================================================= -->
+  <section class="hero-section" id="home">
+    <div class="hero-bg-accent"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>CHE 110 Environmental Studies CA Project</span>
+          </div>
+
+          <h1 class="hero-title">Digital Climate Change Monitoring: Tracking Temperature and Rainfall Trends</h1>
+
+          <h2 class="hero-subtitle">Tracking Climate Patterns Through Digital Data and Technology</h2>
+
+          <p class="hero-description">
+            Digital climate monitoring harnesses automated weather stations (AWS), orbital Earth-observation satellites,
+            and IoT telemetry to capture, analyze, and visualize multi-decadal temperature shifts and erratic
+            precipitation trends.
+            By transforming environmental data into actionable insights, modern science empowers societies to mitigate
+            climate risk
+            and protect vulnerable ecosystems.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#monitoring" class="btn btn-primary" id="btnHeroExplore">
+              <span>📊 Explore Climate Data</span>
+            </a>
+            <a href="#climate-change" class="btn btn-outline" id="btnHeroLearn">
+              <span>🌱 Learn About Climate Change</span>
+            </a>
+          </div>
+
+          <div class="hero-meta-badges">
+            <div class="meta-item">
+              <i>🛰️</i> Satellite Remote Sensing
+            </div>
+            <div class="meta-item">
+              <i>🌡️</i> Multi-Station Telemetry
+            </div>
+            <div class="meta-item">
+              <i>🌧️</i> Dynamic Rainfall Physics
+            </div>
+            <div class="meta-item">
+              <a href="#disclaimer" class="trigger-disclaimer"
+                style="color: var(--text-muted); text-decoration: underline;">
+                📌 Sample Data Notice
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Illustration -->
+        <div class="hero-visual-card">
+          <img src="assets/images/hero-climate-network.jpg"
+            alt="Digital Climate Change Monitoring Earth Network Illustration" width="800" height="450" loading="eager">
+          <div class="floating-telemetry-pill">
+            <div class="telemetry-item">
+              <span class="telemetry-label">Telemetry Status</span>
+              <span class="telemetry-val">● Active Stream</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-label">Global Baseline</span>
+              <span class="telemetry-val">+1.38°C Anomaly</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-label">Precipitation Variance</span>
+              <span class="telemetry-val">+4.8% Fluctuation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 2: ABOUT CLIMATE CHANGE
+       ========================================================================= -->
+  <section class="section-py bg-mint-gradient" id="climate-change">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Scientific Fundamentals</span>
+        <h2 class="section-title">Understanding Climate Change</h2>
+        <p class="section-subtitle">
+          Exploring the planetary mechanisms, anthropogenic drivers, and scientific imperatives behind long-term climate
+          observation.
+        </p>
+      </div>
+
+      <!-- Core Concept Cards -->
+      <div class="climate-intro-grid">
+        <div class="info-card">
+          <div class="card-icon-box">🌍</div>
+          <h3>What is Climate Change?</h3>
+          <p>
+            Climate change refers to significant, long-term alterations in global temperatures and weather patterns.
+            While Earth has naturally experienced warmer and cooler epochs over millions of years, since the onset of
+            the Industrial Revolution
+            in the mid-19th century, anthropogenic (human) activities—predominantly the burning of fossil fuels—have
+            accelerated planetary warming
+            at an unprecedented rate.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon-box">🌡️</div>
+          <h3>The Greenhouse Effect</h3>
+          <p>
+            Earth's atmosphere acts as a natural protective thermal blanket. Solar radiation penetrates the atmosphere
+            to warm the surface.
+            Naturally occurring greenhouse gases absorb outgoing infrared heat and re-emit it, maintaining a habitable
+            average temperature of ~15°C.
+            However, excessive emissions thicken this blanket, trapping surplus heat and intensifying radiative forcing.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon-box">📡</div>
+          <h3>Why We Monitor Climate</h3>
+          <p>
+            Reliable environmental planning, food security, flood mitigation, and urban resilience require continuous
+            empirical measurements.
+            Digital monitoring provides high-resolution temporal data to identify subtle micro-climatic shifts,
+            calibrate hydrological models,
+            and guide national climate policies before ecological thresholds are crossed.
+          </p>
+        </div>
+      </div>
+
+      <!-- Weather vs Climate Comparison Table -->
+      <div class="comparison-container">
+        <div class="comparison-header">
+          <span class="section-tag" style="background:#e0f2fe; color:#0369a1; border-color:#7dd3fc;">Essential
+            Distinction</span>
+          <h3 style="font-size: 1.6rem; color: var(--primary-dark); margin-top: 6px;">Weather vs. Climate</h3>
+          <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+            A fundamental principle in atmospheric science is differentiating short-term meteorological fluctuations
+            from decadal statistical baselines.
+          </p>
+        </div>
+
+        <div class="comparison-grid">
+          <div class="compare-col compare-weather">
+            <h4 class="compare-title">
+              <span>🌦️</span> Atmospheric Weather
+            </h4>
+            <ul class="compare-list">
+              <li><span class="bullet">▪</span> <strong>Timescale:</strong> Minutes, hours, days, or weeks (short-term
+                atmospheric state).</li>
+              <li><span class="bullet">▪</span> <strong>Scope:</strong> Localized phenomena occurring in a specific town
+                or region.</li>
+              <li><span class="bullet">▪</span> <strong>Examples:</strong> Today's sudden rainstorm, a humid afternoon,
+                a cold morning breeze.</li>
+              <li><span class="bullet">▪</span> <strong>Variability:</strong> Highly dynamic, volatile, and subject to
+                rapid chaotic changes.</li>
+              <li><span class="bullet">▪</span> <strong>Measurement:</strong> Immediate readings taken by handheld
+                gauges or local sensors.</li>
+            </ul>
+          </div>
+
+          <div class="compare-col compare-climate">
+            <h4 class="compare-title">
+              <span>🌍</span> Planetary Climate
+            </h4>
+            <ul class="compare-list">
+              <li><span class="bullet">▪</span> <strong>Timescale:</strong> Decades, centuries, or millennia (standard
+                WMO period is 30 years).</li>
+              <li><span class="bullet">▪</span> <strong>Scope:</strong> Regional, continental, or global statistical
+                aggregates.</li>
+              <li><span class="bullet">▪</span> <strong>Examples:</strong> Tropical monsoon cycles, arid desert belts,
+                50-year warming trends.</li>
+              <li><span class="bullet">▪</span> <strong>Variability:</strong> Characterized by stable trends, periodic
+                cycles, and shifts in averages.</li>
+              <li><span class="bullet">▪</span> <strong>Measurement:</strong> Long-term statistical modeling, anomaly
+                calculations, and satellite grids.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Major Anthropogenic Causes of Climate Change -->
+      <div style="margin-bottom: 24px; text-align: center;">
+        <h3 style="font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 8px;">Key Anthropogenic Drivers of
+          Climate Change</h3>
+        <p style="color: var(--text-secondary);">Human industrial and economic activities responsible for rising
+          greenhouse gas concentrations.</p>
+      </div>
+
+      <div class="causes-grid">
+        <div class="cause-card">
+          <div class="cause-icon">🏭</div>
+          <h4>Fossil Fuel Combustion</h4>
+          <p>Coal, petroleum, and natural gas burned for electricity, heating, and heavy manufacturing release gigatons
+            of CO₂ annually.</p>
+        </div>
+        <div class="cause-card">
+          <div class="cause-icon">🪓</div>
+          <h4>Deforestation</h4>
+          <p>Clearing vital rainforests reduces natural carbon sinks and releases stored biomass carbon directly into
+            the atmosphere.</p>
+        </div>
+        <div class="cause-card">
+          <div class="cause-icon">🚗</div>
+          <h4>Transportation</h4>
+          <p>Internal combustion engines across road, aviation, and maritime freight emit greenhouse gases and black
+            carbon aerosols.</p>
+        </div>
+        <div class="cause-card">
+          <div class="cause-icon">🌾</div>
+          <h4>Intensive Agriculture</h4>
+          <p>Livestock enteric fermentation generates methane (CH₄), while synthetic nitrogen fertilizers release potent
+            nitrous oxide (N₂O).</p>
+        </div>
+        <div class="cause-card">
+          <div class="cause-icon">🏙️</div>
+          <h4>Industrial Processes</h4>
+          <p>Cement synthesis, chemical production, and refrigeration emit fluorinated synthetic greenhouse compounds.
+          </p>
+        </div>
+      </div>
+
+      <!-- Why Monitor Climate Highlights Box -->
+      <div class="why-monitor-box">
+        <h3>Critical Pillars: Why Digital Climate Monitoring Matters</h3>
+        <p class="intro-text">
+          Modern society depends on accurate environmental foresight to safeguard vital systems and prevent natural
+          crises.
+        </p>
+
+        <div class="why-monitor-grid">
+          <div class="why-card">
+            <h4>🌾 Agricultural Planning</h4>
+            <p>Predicting monsoon onset, crop sowing calendars, and seasonal frost risk to secure regional food
+              supplies.</p>
+          </div>
+          <div class="why-card">
+            <h4>💧 Water Resource Management</h4>
+            <p>Guiding reservoir storage, glacier melt monitoring, groundwater recharge, and urban drought allocations.
+            </p>
+          </div>
+          <div class="why-card">
+            <h4>🚨 Disaster Preparedness</h4>
+            <p>Early warning detection for extreme flash floods, heatwaves, cyclones, and forest fire meteorological
+              conditions.</p>
+          </div>
+          <div class="why-card">
+            <h4>🌿 Sustainable Infrastructure</h4>
+            <p>Designing storm drainage, sea defenses, and green urban architecture resilient to future climate
+              extremes.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 3: TEMPERATURE MONITORING
+       ========================================================================= -->
+  <section class="section-py bg-forest-subtle" id="temperature">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Thermal Telemetry</span>
+        <h2 class="section-title">Interactive Temperature Monitoring</h2>
+        <p class="section-subtitle">
+          Empirical thermal tracking showing multi-station observations, seasonal variations, and long-term warming
+          anomalies.
+        </p>
+      </div>
+
+      <!-- Dashboard Controls Toolbar -->
+      <div class="dashboard-controls-bar">
+        <div class="controls-group-left">
+          <div class="control-field">
+            <label for="tempLocationSelect" class="control-label">📍 Monitoring Location:</label>
+            <select id="tempLocationSelect" class="form-select climate-location-select"
+              aria-label="Select monitoring station">
+              <option value="delhi">1. New Delhi (Northern Plains Subtropical)</option>
+              <option value="london">2. London, UK (NW European Maritime)</option>
+              <option value="tokyo">3. Tokyo (East Asian Pacific Coast)</option>
+              <option value="amazon">4. Amazon Basin (Equatorial Rainforest)</option>
+              <option value="global" selected>5. Global Mean (WMO Surface & Satellite Grid)</option>
+              <option value="maharashtra">6. Maharashtra (Western Ghats & Deccan Plateau)</option>
+              <option value="rajasthan">7. Rajasthan (Thar Desert & Aravalli Basin)</option>
+              <option value="assam">8. Assam (Brahmaputra Valley & NE Hills)</option>
+              <option value="uttarakhand">9. Uttarakhand (Central Himalayan Foothills)</option>
+              <option value="punjab">10. Punjab (Indo-Gangetic Agro-Climatic Plains)</option>
+              <option value="kerala">11. Kerala (Malabar Coast Tropical Monsoon)</option>
+              <option value="tamilnadu">12. Tamil Nadu (Coromandel Coast Retreating Monsoon)</option>
+              <option value="himachal">13. Himachal Pradesh (Western Himalayas Montane)</option>
+            </select>
+          </div>
+
+          <div class="control-field">
+            <label for="tempYearSelect" class="control-label">📅 Year:</label>
+            <select id="tempYearSelect" class="form-select climate-year-select" aria-label="Select analysis year">
+              <option value="2026">2026 (Current Projected)</option>
+              <option value="2025">2025</option>
+              <option value="2024" selected>2024 (Latest Recorded)</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016 (El Niño Peak)</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
+              <option value="2013">2013</option>
+              <option value="2012">2012</option>
+              <option value="2011">2011</option>
+              <option value="2010">2010</option>
+              <option value="2009">2009</option>
+              <option value="2008">2008</option>
+              <option value="2007">2007</option>
+              <option value="2006">2006</option>
+              <option value="2005">2005</option>
+              <option value="2004">2004</option>
+              <option value="2003">2003</option>
+              <option value="2002">2002</option>
+              <option value="2001">2001</option>
+              <option value="2000">2000 (Baseline Epoch)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="view-toggle-pills">
+          <button type="button" class="toggle-pill-btn active" id="btnTempMonthly">Monthly View</button>
+          <button type="button" class="toggle-pill-btn" id="btnTempYearly">2000–2026 Trend</button>
+        </div>
+      </div>
+
+      <!-- Temperature Metric Cards -->
+      <div class="stats-cards-grid">
+        <div class="stat-card stat-card-temp">
+          <div class="stat-card-header">
+            <span class="stat-label">Average Temperature</span>
+            <div class="stat-icon-bubble">🌡️</div>
+          </div>
+          <div class="stat-val" id="tempStatAvg">15.1°C</div>
+          <div class="stat-subtext">Mean annual thermal baseline</div>
+        </div>
+
+        <div class="stat-card stat-card-temp">
+          <div class="stat-card-header">
+            <span class="stat-label">Maximum Recorded</span>
+            <div class="stat-icon-bubble" style="background:#fee2e2; color:#ef4444;">🔥</div>
+          </div>
+          <div class="stat-val" id="tempStatMax">19.4°C</div>
+          <div class="stat-subtext">Peak summer observation</div>
+        </div>
+
+        <div class="stat-card stat-card-temp">
+          <div class="stat-card-header">
+            <span class="stat-label">Minimum Recorded</span>
+            <div class="stat-icon-bubble" style="background:#e0f2fe; color:#0284c7;">❄️</div>
+          </div>
+          <div class="stat-val" id="tempStatMin">11.8°C</div>
+          <div class="stat-subtext">Lowest winter observation</div>
+        </div>
+
+        <div class="stat-card stat-card-temp">
+          <div class="stat-card-header">
+            <span class="stat-label">Temperature Anomaly</span>
+            <div class="stat-icon-bubble" style="background:#fef3c7; color:#d97706;">📈</div>
+          </div>
+          <div class="stat-val" id="tempStatChange" style="font-size:1.35rem; color:#b45309;">+1.38°C vs baseline</div>
+          <div class="stat-subtext"><span class="stat-tag-badge tag-temp-change">Upward Thermal Drift</span></div>
+        </div>
+      </div>
+
+      <!-- Interactive Temperature Chart Container -->
+      <div class="chart-box-container">
+        <div class="chart-header-row">
+          <div class="chart-title-group">
+            <h3>Temperature Profile & Seasonal Oscillation</h3>
+            <p>Continuous thermal sensor measurements displaying average, upper limit, and minimum readings</p>
+          </div>
+          <span class="station-meta-badge" id="stationCoordsBadge">Satellite Composite • WMO Surface</span>
+        </div>
+
+        <div class="chart-canvas-wrapper">
+          <canvas id="tempTrendChartCanvas" aria-label="Interactive Temperature Trend Chart" role="img"></canvas>
+        </div>
+      </div>
+
+      <!-- Trend Explanation Callout -->
+      <div class="explanation-card">
+        <div class="exp-icon">💡</div>
+        <p id="tempTrendExplanationText">
+          <strong>Seasonal Temperature Dynamics:</strong> Sensor records illustrate continuous thermal telemetry.
+          Rising baseline values across all monitored seasons correlate directly with increasing atmospheric carbon
+          dioxide concentrations.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 4 & 5: RAINFALL MONITORING & INTERACTIVE WEATHER SIMULATOR
+       ========================================================================= -->
+  <section class="section-py bg-mint-gradient" id="rainfall">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="background:#e0f2fe; color:#0284c7; border-color:#7dd3fc;">Hydrological
+          Telemetry</span>
+        <h2 class="section-title">Rainfall Monitoring & Weather Simulation</h2>
+        <p class="section-subtitle">
+          Real-time precipitation analysis, tipping-bucket sensor records, and an interactive atmospheric weather
+          simulator.
+        </p>
+      </div>
+
+      <!-- Dashboard Controls Toolbar -->
+      <div class="dashboard-controls-bar">
+        <div class="controls-group-left">
+          <div class="control-field">
+            <label for="rainLocationSelect" class="control-label">📍 Monitoring Location:</label>
+            <select id="rainLocationSelect" class="form-select climate-location-select"
+              aria-label="Select rainfall station">
+              <option value="delhi">1. New Delhi (Monsoon Dynamics)</option>
+              <option value="london">2. London, UK (Maritime Regular Precipitation)</option>
+              <option value="tokyo">3. Tokyo (Subtropical Typhoons)</option>
+              <option value="amazon">4. Amazon Basin (Tropical Convective)</option>
+              <option value="global" selected>5. Global Mean (WMO Surface & Satellite Grid)</option>
+              <option value="maharashtra">6. Maharashtra (Heavy Arabian Sea Monsoon)</option>
+              <option value="rajasthan">7. Rajasthan (Arid Low Precipitation)</option>
+              <option value="assam">8. Assam (High Volume NE River Basin)</option>
+              <option value="uttarakhand">9. Uttarakhand (Himalayan Orographic Inundation)</option>
+              <option value="punjab">10. Punjab (Monsoon & Western Disturbances)</option>
+              <option value="kerala">11. Kerala (Tropical Dual Monsoon Gateway)</option>
+              <option value="tamilnadu">12. Tamil Nadu (Autumn Retreating Monsoon Peak)</option>
+              <option value="himachal">13. Himachal Pradesh (High Altitude Snow & Cloudburst)</option>
+            </select>
+          </div>
+
+          <div class="control-field">
+            <label for="rainYearSelect" class="control-label">📅 Year:</label>
+            <select id="rainYearSelect" class="form-select climate-year-select" aria-label="Select rainfall year">
+              <option value="2026">2026 (Current Projected)</option>
+              <option value="2025">2025</option>
+              <option value="2024" selected>2024 (Latest Recorded)</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
+              <option value="2013">2013</option>
+              <option value="2012">2012</option>
+              <option value="2011">2011</option>
+              <option value="2010">2010</option>
+              <option value="2009">2009</option>
+              <option value="2008">2008</option>
+              <option value="2007">2007</option>
+              <option value="2006">2006</option>
+              <option value="2005">2005</option>
+              <option value="2004">2004</option>
+              <option value="2003">2003</option>
+              <option value="2002">2002</option>
+              <option value="2001">2001</option>
+              <option value="2000">2000 (Baseline Epoch)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="view-toggle-pills">
+          <button type="button" class="toggle-pill-btn active" id="btnRainMonthly">Monthly View</button>
+          <button type="button" class="toggle-pill-btn" id="btnRainYearly">2000–2026 Trend</button>
+        </div>
+      </div>
+
+      <!-- Rainfall Metric Cards -->
+      <div class="stats-cards-grid">
+        <div class="stat-card stat-card-rain">
+          <div class="stat-card-header">
+            <span class="stat-label">Average Monthly Rainfall</span>
+            <div class="stat-icon-bubble stat-icon-rain">💧</div>
+          </div>
+          <div class="stat-val" id="rainStatAvg">87.1 mm/mo</div>
+          <div class="stat-subtext">Monthly mean precipitation</div>
+        </div>
+
+        <div class="stat-card stat-card-rain">
+          <div class="stat-card-header">
+            <span class="stat-label">Maximum Monthly Rainfall</span>
+            <div class="stat-icon-bubble stat-icon-rain">🌧️</div>
+          </div>
+          <div class="stat-val" id="rainStatMax">112 mm</div>
+          <div class="stat-subtext">Peak precipitation month</div>
+        </div>
+
+        <div class="stat-card stat-card-rain">
+          <div class="stat-card-header">
+            <span class="stat-label">Minimum Monthly Rainfall</span>
+            <div class="stat-icon-bubble stat-icon-rain">🌤️</div>
+          </div>
+          <div class="stat-val" id="rainStatMin">64 mm</div>
+          <div class="stat-subtext">Driest observed period</div>
+        </div>
+
+        <div class="stat-card stat-card-rain">
+          <div class="stat-card-header">
+            <span class="stat-label">Total Rainy Days</span>
+            <div class="stat-icon-bubble stat-icon-rain">📅</div>
+          </div>
+          <div class="stat-val" id="rainStatDays">118 days</div>
+          <div class="stat-subtext">Precipitation days (>1.0 mm)</div>
+        </div>
+
+        <div class="stat-card stat-card-rain">
+          <div class="stat-card-header">
+            <span class="stat-label">Rainfall Variation</span>
+            <div class="stat-icon-bubble stat-icon-rain">📊</div>
+          </div>
+          <div class="stat-val" id="rainStatVariation" style="font-size:1.35rem; color:#0369a1;">+4.8% vs 30-yr mean
+          </div>
+          <div class="stat-subtext"><span class="stat-tag-badge tag-rain-var">Hydrological Shift</span></div>
+        </div>
+      </div>
+
+      <!-- =====================================================================
+           SECTION 5: INTERACTIVE RAIN & THUNDERSTORM SIMULATION STAGE
+           ===================================================================== -->
+      <div class="weather-stage weather-mode-clear" id="rainfallSectionContainer">
+        <!-- Canvas for high performance rain drops, splashes, and lightning -->
+        <canvas class="weather-canvas" id="weatherCanvas" aria-hidden="true"></canvas>
+        <div class="weather-cloud-layer"></div>
+
+        <!-- Weather Controls & Dynamic Status Bar -->
+        <div class="weather-controller-bar">
+          <div class="weather-status-wrapper">
+            <div class="weather-status-badge status-clear" id="weatherStatusBadge">
+              <span class="weather-icon-dynamic" id="weatherStatusIcon">☀️</span>
+              <span id="weatherStatusText">Clear</span>
+            </div>
+            <span class="weather-telemetry-rate" id="weatherPrecipRate">0.0 mm/hr (Dry / Calm)</span>
+          </div>
+
+          <!-- Functional Control Buttons -->
+          <div class="weather-btn-group">
+            <button type="button" class="weather-ctrl-btn" id="btnRainMode" title="Activate gentle rain animation">
+              <i>🌦️</i> Activate Rain Mode
+            </button>
+            <button type="button" class="weather-ctrl-btn" id="btnHeavyRainMode" title="Activate intense downpour">
+              <i>🌧️</i> Heavy Rain
+            </button>
+            <button type="button" class="weather-ctrl-btn storm-btn" id="btnThunderstormMode"
+              title="Activate dark storm clouds and lightning flashes">
+              <i>⛈️</i> Thunderstorm Mode
+            </button>
+            <button type="button" class="weather-ctrl-btn active" id="btnStopWeather"
+              title="Reset weather simulator to clear">
+              <i>⏹️</i> Stop Weather Effect
+            </button>
+            <button type="button" class="weather-ctrl-btn btn-audio-toggle" id="btnToggleAudio"
+              title="Toggle synthesized thunder audio">
+              <i>🔇</i> Sound: OFF
+            </button>
+          </div>
+        </div>
+
+        <!-- Rainfall Chart Inside Weather Stage -->
+        <div class="weather-stage-content">
+          <div class="chart-box-container">
+            <div class="chart-header-row">
+              <div class="chart-title-group">
+                <h3>Precipitation Hyetograph & Rainy Days Frequency</h3>
+                <p>Bar chart shows total precipitation (mm) and line indicates monthly rainy day count</p>
+              </div>
+              <span class="station-meta-badge" id="stationTypeBadge">Automated Tipping-Bucket AWS</span>
+            </div>
+
+            <div class="chart-canvas-wrapper">
+              <canvas id="rainfallTrendChartCanvas" aria-label="Interactive Rainfall Hyetograph Chart"
+                role="img"></canvas>
+            </div>
+          </div>
+
+          <!-- Rainfall Trend Explanation -->
+          <div class="explanation-card">
+            <div class="exp-icon">🌧️</div>
+            <p id="rainfallTrendExplanationText">
+              <strong>Hydrological Distribution:</strong> Accumulated precipitation demonstrates pronounced seasonality.
+              Under shifting climate patterns, intense brief rain squalls are replacing steady seasonal drizzle,
+              heightening urban drainage risks.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 6: CLIMATE MONITORING DASHBOARD (Central Synthesis & Map)
+       ========================================================================= -->
+  <section class="section-py bg-forest-subtle" id="monitoring">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Central Telemetry</span>
+        <h2 class="section-title">Climate Monitoring Central Dashboard</h2>
+        <p class="section-subtitle">
+          Holistic planetary overview synthesizing temperature, rainfall, decadal warming trajectories, and telemetry
+          station networks.
+        </p>
+      </div>
+
+      <!-- Dashboard Summary Metric Cards -->
+      <div class="stats-cards-grid">
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span class="stat-label">Current Surface Temp</span>
+            <div class="stat-icon-bubble">🌡️</div>
+          </div>
+          <div class="stat-val stat-counter" id="dashStatTemp" data-target="15.1" data-suffix="°C" data-decimals="1">
+            15.1°C</div>
+          <div class="stat-subtext">Active station composite</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span class="stat-label">Annual Rainfall</span>
+            <div class="stat-icon-bubble stat-icon-rain">💧</div>
+          </div>
+          <div class="stat-val stat-counter" id="dashStatRain" data-target="1045" data-suffix=" mm" data-decimals="0">
+            1045 mm</div>
+          <div class="stat-subtext">Total precipitation sum</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span class="stat-label">Climate Trajectory</span>
+            <div class="stat-icon-bubble">📈</div>
+          </div>
+          <div class="stat-val" id="dashStatTrend" style="font-size:1.35rem; color:#b45309;">+1.38°C vs pre-ind.</div>
+          <div class="stat-subtext">Decadal temperature forcing</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span class="stat-label">Active Monitoring Hub</span>
+            <div class="stat-icon-bubble">📡</div>
+          </div>
+          <div class="stat-val" id="dashStatStation" style="font-size:1.15rem; color:var(--primary);">Global Land-Ocean
+          </div>
+          <div class="stat-subtext" id="dashStatType">Satellite & AWS Network</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-header">
+            <span class="stat-label">Data Telemetry Status</span>
+            <div class="stat-icon-bubble" style="background:#dcfce7; color:#15803d;">⚡</div>
+          </div>
+          <div class="stat-val" style="font-size:1.2rem; color:#15803d;">Sample / Demo</div>
+          <div class="stat-subtext">Validated educational models</div>
+        </div>
+      </div>
+
+      <!-- Stylized Map Monitoring Stations Selection Grid -->
+      <div class="map-vis-wrapper">
+        <div class="map-vis-header">
+          <h3>Interactive Climate Telemetry Stations</h3>
+          <p>Click any monitoring station below to instantly synchronize temperature, rainfall, and decadal datasets
+            across the dashboard:</p>
+        </div>
+
+        <div class="station-cards-grid">
+          <!-- 1. New Delhi -->
+          <div class="station-map-card" data-location="delhi">
+            <div class="station-card-top">
+              <span class="station-pin">📍</span>
+              <span class="station-status-pill">Active Telemetry</span>
+            </div>
+            <h4>1. New Delhi Station</h4>
+            <div class="station-meta-coords">28.58° N, 77.20° E • 216m ASL</div>
+            <div class="station-type-tag">Automated Weather Station (IMD)</div>
+          </div>
+
+          <!-- 2. London -->
+          <div class="station-map-card" data-location="london">
+            <div class="station-card-top">
+              <span class="station-pin">📍</span>
+              <span class="station-status-pill">Active Telemetry</span>
+            </div>
+            <h4>2. London Met Observatory</h4>
+            <div class="station-meta-coords">51.50° N, 0.12° W • 25m ASL</div>
+            <div class="station-type-tag">Synoptic Micro-Doppler Array</div>
+          </div>
+
+          <!-- 3. Tokyo -->
+          <div class="station-map-card" data-location="tokyo">
+            <div class="station-card-top">
+              <span class="station-pin">📍</span>
+              <span class="station-status-pill">Active Telemetry</span>
+            </div>
+            <h4>3. Tokyo Bay Station</h4>
+            <div class="station-meta-coords">35.67° N, 139.65° E • 18m ASL</div>
+            <div class="station-type-tag">High-Density Urban Meso-Grid</div>
+          </div>
+
+          <!-- 4. Amazon Basin -->
+          <div class="station-map-card" data-location="amazon">
+            <div class="station-card-top">
+              <span class="station-pin">📍</span>
+              <span class="station-status-pill">Active Telemetry</span>
+            </div>
+            <h4>4. Amazon Rainforest (Manaus)</h4>
+            <div class="station-meta-coords">3.11° S, 60.02° W • 92m ASL</div>
+            <div class="station-type-tag">Eddy Covariance Biosphere Tower</div>
+          </div>
+
+          <!-- 5. Global Mean -->
+          <div class="station-map-card active-station" data-location="global">
+            <div class="station-card-top">
+              <span class="station-pin">🌐</span>
+              <span class="station-status-pill">Active Telemetry</span>
+            </div>
+            <h4>5. Global Composite</h4>
+            <div class="station-meta-coords">89.5°N - 89.5°S (WMO Grid)</div>
+            <div class="station-type-tag">Satellite Constellation & Surface Network</div>
+          </div>
+
+          <!-- 6. Maharashtra -->
+          <div class="station-map-card" data-location="maharashtra">
+            <div class="station-card-top">
+              <span class="station-pin">📍</span>
+              <span class="station-status-pill">Active Telemetry</span>
+            </div>
+            <h4>6. Maharashtra Station</h4>
+            <div class="station-meta-coords">19.07° N, 72.87° E • 14m ASL</div>
+            <div class="station-type-tag">Coastal Doppler Radar & AWS (IMD)</div>
+          </div>
+
+          <!-- 7. Rajasthan -->
+          <div class="station-map-card" data-location="rajasthan">
+            <div class="station-card-top">
+              <span class="station-pin">📍</span>
+              <span class="station-status-pill">Active Telemetry</span>
+            </div>
+            <h4>7. Rajasthan Observatory</h4>
+            <div class="station-meta-coords">26.91° N, 75.78° E • 431m ASL</div>
+            <div class="station-type-tag">Arid Zone Radiometer & Solar AWS</div>
+          </div>
+
+          <!-- 8. Assam -->
+          <div class="station-map-card" data-location="assam">
+            <div class="station-card-top">
+              <span class="station-pin">📍</span>
+              <span class="station-status-pill">Active Telemetry</span>
+            </div>
+            <h4>8. Assam Valley Hub</h4>
+            <div class="station-meta-coords">26.14° N, 91.73° E • 55m ASL</div>
+            <div class="station-type-tag">Hydrological River Telemetry (CWC)</div>
+          </div>
+
+          <!-- 9. Uttarakhand -->
+          <div class="station-map-card" data-location="uttarakhand">
+            <div class="station-card-top">
+              <span class="station-pin">📍</span>
+              <span class="station-status-pill">Active Telemetry</span>
+            </div>
+            <h4>9. Uttarakhand Himalayan Station</h4>
+            <div class="station-meta-coords">30.31° N, 78.03° E • 680m ASL</div>
+            <div class="station-type-tag">Montane Micro-AWS & Flash Flood Radar</div>
+          </div>
+
+          <!-- 10. Punjab -->
+          <div class="station-map-card" data-location="punjab">
+            <div class="station-card-top">
+              <span class="station-pin">📍</span>
+              <span class="station-status-pill">Active Telemetry</span>
+            </div>
+            <h4>10. Punjab Agro-Climatic Hub</h4>
+            <div class="station-meta-coords">31.63° N, 74.87° E • 234m ASL</div>
+            <div class="station-type-tag">Agricultural Micro-Climate Tower</div>
+          </div>
+
+          <!-- 11. Kerala -->
+          <div class="station-map-card" data-location="kerala">
+            <div class="station-card-top">
+              <span class="station-pin">📍</span>
+              <span class="station-status-pill">Active Telemetry</span>
+            </div>
+            <h4>11. Kerala Maritime Station</h4>
+            <div class="station-meta-coords">8.52° N, 76.93° E • 8m ASL</div>
+            <div class="station-type-tag">Monsoon Gateway AWS & Ocean Buoy</div>
+          </div>
+
+          <!-- 12. Tamil Nadu -->
+          <div class="station-map-card" data-location="tamilnadu">
+            <div class="station-card-top">
+              <span class="station-pin">📍</span>
+              <span class="station-status-pill">Active Telemetry</span>
+            </div>
+            <h4>12. Tamil Nadu Observatory</h4>
+            <div class="station-meta-coords">13.08° N, 80.27° E • 7m ASL</div>
+            <div class="station-type-tag">Cyclone Doppler Radar Array</div>
+          </div>
+
+          <!-- 13. Himachal Pradesh -->
+          <div class="station-map-card" data-location="himachal">
+            <div class="station-card-top">
+              <span class="station-pin">📍</span>
+              <span class="station-status-pill">Active Telemetry</span>
+            </div>
+            <h4>13. Himachal Pradesh Station</h4>
+            <div class="station-meta-coords">31.10° N, 77.17° E • 2,206m ASL</div>
+            <div class="station-type-tag">High-Altitude Snow & Precipitation Gauge</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decadal Comparative Multi-Metric Chart -->
+      <div class="chart-box-container">
+        <div class="chart-header-row">
+          <div class="chart-title-group">
+            <h3>Decadal Climate Trajectory (2000 – 2026)</h3>
+            <p>Dual-axis evaluation tracking annual mean temperature (°C) against total annual precipitation (mm)</p>
+          </div>
+          <span class="station-meta-badge" id="stationIdBadge">Station ID: WMO-GLB-001</span>
+        </div>
+
+        <div class="chart-canvas-wrapper" style="height: 380px;">
+          <canvas id="dashboardTrendChartCanvas" aria-label="10-Year Climate Trajectory Chart" role="img"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 7: HOW DIGITAL CLIMATE MONITORING WORKS
+       ========================================================================= -->
+  <section class="section-py bg-mint-gradient" id="technology">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Digital Architecture</span>
+        <h2 class="section-title">How Digital Climate Monitoring Works</h2>
+        <p class="section-subtitle">
+          From ground-level IoT sensors to orbital satellites, see the complete end-to-end data pipeline transforming
+          environmental physics into predictive intelligence.
+        </p>
+      </div>
+
+      <!-- Architecture Workflow Visual Banner -->
+      <div class="flow-diagram-wrapper">
+        <img src="assets/images/tech-monitoring-flow.jpg"
+          alt="Digital Climate Monitoring Architecture Diagram - Weather Station to Cloud and Satellite" width="1200"
+          height="675" loading="lazy">
+      </div>
+
+      <!-- 6-Stage Process Steps Grid -->
+      <div class="process-steps-grid">
+        <div class="step-card">
+          <span class="step-num">1</span>
+          <div class="step-icon">📡</div>
+          <h4>Sensors & Satellites</h4>
+          <p>Surface Automated Weather Stations and polar-orbiting satellites measure solar irradiance, ambient
+            temperature, humidity, and barometric pressure.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">2</span>
+          <div class="step-icon">📶</div>
+          <h4>Data Collection</h4>
+          <p>IoT telemetry micro-controllers digitize physical sensor signals, bundling data packets for wireless
+            transmission via LoRaWAN, 4G/5G, or satellite uplinks.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">3</span>
+          <div class="step-icon">☁️</div>
+          <h4>Cloud Storage</h4>
+          <p>Secure geo-distributed cloud repositories ingest continuous time-series data streams with high-redundancy
+            environmental fault tolerance.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">4</span>
+          <div class="step-icon">⚙️</div>
+          <h4>Data Analysis</h4>
+          <p>Meteorological algorithms remove noise, calibrate drift, calculate moving baselines, and compute
+            standardized precipitation and thermal anomaly indices.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">5</span>
+          <div class="step-icon">📊</div>
+          <h4>Visualization</h4>
+          <p>Web GIS dashboards, hyetographs, and thermal anomaly maps render complex climatological datasets into
+            human-understandable visual graphs.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">6</span>
+          <div class="step-icon">🎯</div>
+          <h4>Climate Decisions</h4>
+          <p>Urban authorities, farmers, disaster agencies, and policymakers take proactive actions to safeguard
+            vulnerable communities and natural habitats.</p>
+        </div>
+      </div>
+
+      <!-- Section 8: Key Technologies Embedded Cards -->
+      <div style="margin-top: 64px;">
+        <div style="text-align: center; margin-bottom: 32px;">
+          <h3 style="font-size: 1.6rem; color: var(--primary-dark); margin-bottom: 8px;">Key Technological Enablers</h3>
+          <p style="color: var(--text-secondary);">The digital hardware, communication protocols, and computational
+            systems modern meteorology relies upon.</p>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-icon-wrap">📟</div>
+            <h3>IoT Environmental Sensors</h3>
+            <p>
+              Autonomous, low-power micro-electronic devices equipped with platinum resistance thermometers (PRTs),
+              optical rain sensors, hygrometers, and solar radiometers that operate untethered in remote wilderness
+              zones.
+            </p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon-wrap">🛰️</div>
+            <h3>Earth Observation Satellites</h3>
+            <p>
+              Geostationary and Sun-synchronous satellites (e.g., NASA MODIS, ESA Sentinel, INSAT) capturing
+              wide-spectrum imagery
+              of sea-surface temperatures, vegetative health (NDVI), and cloud moisture dynamics across entire
+              continents.
+            </p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon-wrap">☁️</div>
+            <h3>Cloud Computing</h3>
+            <p>
+              Scalable distributed cloud clusters hosting petabytes of historical weather data, executing climate model
+              ensembles
+              and powering global public-access environmental APIs.
+            </p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon-wrap">📈</div>
+            <h3>Big Data Analytics</h3>
+            <p>
+              Statistical time-series algorithms identifying non-linear patterns, cyclical phenomena like El
+              Niño-Southern Oscillation (ENSO),
+              and long-term climatic inflection thresholds.
+            </p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-icon-wrap">🤖</div>
+            <h3>Artificial Intelligence</h3>
+            <p>
+              Deep neural networks and machine learning models accelerating atmospheric simulation speeds by orders of
+              magnitude,
+              delivering hyper-local nowcasting and detecting anomalous weather hazards with high precision.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 9: CLIMATE CHANGE IMPACTS
+       ========================================================================= -->
+  <section class="section-py bg-forest-subtle" id="impacts">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="background:#fee2e2; color:#991b1b; border-color:#fca5a5;">Planetary
+          Consequences</span>
+        <h2 class="section-title">Cascading Impacts of Climate Change</h2>
+        <p class="section-subtitle">
+          How persistent temperature spikes and erratic precipitation disrupt ecological equilibriums and human
+          societies.
+        </p>
+      </div>
+
+      <div class="impacts-grid">
+        <div class="impact-card">
+          <div class="impact-header">
+            <span class="impact-icon">🌡️</span>
+            <h4>Rising Temperatures</h4>
+          </div>
+          <p>Accelerating glacier retreat, diminishing polar ice sheets, expanding tropical warm zones, and triggering
+            deadly urban heatwaves.</p>
+        </div>
+
+        <div class="impact-card impact-water">
+          <div class="impact-header">
+            <span class="impact-icon">⛈️</span>
+            <h4>Shifting Rainfall Regimes</h4>
+          </div>
+          <p>Disrupting historical agricultural planting seasons, compressing monsoon periods into destructive
+            high-intensity cloudbursts.</p>
+        </div>
+
+        <div class="impact-card impact-water">
+          <div class="impact-header">
+            <span class="impact-icon">🌊</span>
+            <h4>Catastrophic Flooding</h4>
+          </div>
+          <p>Overwhelming riverbanks and metropolitan stormwater channels, causing catastrophic infrastructure erosion
+            and sediment deposition.</p>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-header">
+            <span class="impact-icon">🏜️</span>
+            <h4>Intensified Droughts</h4>
+          </div>
+          <p>Exhausting topsoil moisture, shrinking major inland freshwater lakes, desiccating rivers, and elevating
+            wildland wildfire risk.</p>
+        </div>
+
+        <div class="impact-card impact-water">
+          <div class="impact-header">
+            <span class="impact-icon">🚰</span>
+            <h4>Acute Water Scarcity</h4>
+          </div>
+          <p>Depleting subterranean aquifers and creating intense water competition between municipal centers, energy
+            grids, and agriculture.</p>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-header">
+            <span class="impact-icon">🌾</span>
+            <h4>Agricultural Stress</h4>
+          </div>
+          <p>Reducing staple cereal yields (wheat, rice, maize) due to thermal heat stress, soil salinization, and
+            expanding crop pest habitats.</p>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-header">
+            <span class="impact-icon">🐠</span>
+            <h4>Ecosystem Disruption</h4>
+          </div>
+          <p>Driving widespread coral reef bleaching, shifting migratory bird timelines, and increasing biodiversity
+            extinction risks.</p>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-header">
+            <span class="impact-icon">🏘️</span>
+            <h4>Human Settlement Risks</h4>
+          </div>
+          <p>Threatening low-lying coastal cities with sea-level rise and increasing climate-driven internal
+            displacement and migration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 10: SOLUTIONS & SUSTAINABILITY
+       ========================================================================= -->
+  <section class="section-py bg-mint-gradient" id="solutions">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Actionable Pathways</span>
+        <h2 class="section-title">Sustainable Solutions & Climate Mitigation</h2>
+        <p class="section-subtitle">
+          Technological, ecological, and policy strategies to stabilize global temperatures and preserve planetary
+          biodiversity.
+        </p>
+      </div>
+
+      <div class="solutions-grid">
+        <div class="solution-card">
+          <div class="solution-icon-box">☀️</div>
+          <h4>Renewable Energy Transition</h4>
+          <p>Rapidly deploying solar photovoltaics, offshore wind turbines, and hydroelectric storage to decarbonize
+            electricity generation.</p>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon-box">🌲</div>
+          <h4>Afforestation & Reforestation</h4>
+          <p>Restoring degraded native woodlands and mangrove coastal buffers to capture atmospheric CO₂ and stabilize
+            hydrological cycles.</p>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon-box">💧</div>
+          <h4>Intelligent Water Conservation</h4>
+          <p>Scaling drip irrigation, wastewater recycling, and rainwater harvesting cisterns to guard against prolonged
+            drought spells.</p>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon-box">⚡</div>
+          <h4>Energy Efficiency</h4>
+          <p>Modernizing industrial motors, insulating civic buildings, and deploying smart LED illumination to cut
+            wasted wattage.</p>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon-box">🚆</div>
+          <h4>Sustainable Transport</h4>
+          <p>Expanding electrified rail systems, urban bus rapid transit, and bicycling corridors to replace combustion
+            vehicle reliance.</p>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon-box">♻️</div>
+          <h4>Circular Economy</h4>
+          <p>Minimizing single-use virgin plastics, composting organic municipal waste, and recovering industrial metals
+            to reduce lifecycle carbon.</p>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon-box">🌱</div>
+          <h4>Regenerative Agriculture</h4>
+          <p>Practicing cover-cropping, low-till farming, and bio-fertilizers to rebuild organic soil carbon and prevent
+            erosion.</p>
+        </div>
+
+        <div class="solution-card">
+          <div class="solution-icon-box">📚</div>
+          <h4>Climate Education</h4>
+          <p>Fostering scientific literacy through environmental curricula and community-led participatory digital
+            weather observatories.</p>
+        </div>
+      </div>
+
+      <!-- What Can We Do? Student Action Box -->
+      <div class="action-banner">
+        <h3>🌱 What Can We Do? Practical Student Actions</h3>
+        <div class="student-actions-grid">
+          <div class="action-pill">
+            <i>🚴</i> Choose walking, cycling, or public transit for campus commutes
+          </div>
+          <div class="action-pill">
+            <i>💡</i> Power down idle computers and laboratory appliances
+          </div>
+          <div class="action-pill">
+            <i>🥗</i> Incorporate more seasonal, plant-rich meals into daily diets
+          </div>
+          <div class="action-pill">
+            <i>💧</i> Report campus water leaks and practice zero water waste
+          </div>
+          <div class="action-pill">
+            <i>🌳</i> Participate in campus tree planting and local clean-up drives
+          </div>
+          <div class="action-pill">
+            <i>📢</i> Share digital climate data to raise awareness among peers
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 11: INTERACTIVE CLIMATE AWARENESS QUIZ
+       ========================================================================= -->
+  <section class="section-py bg-forest-subtle" id="quiz">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Interactive Evaluation</span>
+        <h2 class="section-title">Climate Awareness & Monitoring Quiz</h2>
+        <p class="section-subtitle">
+          Test your comprehension of temperature anomalies, rainfall dynamics, and digital meteorological technologies.
+        </p>
+      </div>
+
+      <!-- Quiz Mounting Container -->
+      <div id="quizMountPoint">
+        <!-- Rendered dynamically by js/quiz.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 12: SAMPLE DATA DISCLAIMER
+       ========================================================================= -->
+  <section class="container disclaimer-container" id="disclaimer">
+    <div class="disclaimer-card">
+      <div class="disclaimer-icon">⚠️</div>
+      <div>
+        <h3 class="disclaimer-title">Educational Sample Data Disclaimer</h3>
+        <p class="disclaimer-text">
+          <strong>“The temperature and rainfall values displayed in this project are sample/demo data created for
+            educational visualization.
+            They do not represent live meteorological measurements unless connected to an actual data source.”</strong>
+          This platform was engineered for university coursework and demonstrative purposes in course CHE 110
+          Environmental Studies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 13: ABOUT PROJECT
+       ========================================================================= -->
+  <section class="section-py" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Academic Metadata</span>
+        <h2 class="section-title">About the Project</h2>
+        <p class="section-subtitle">
+          Official academic specifications, student authorship, and course curriculum alignment.
+        </p>
+      </div>
+
+      <div class="about-project-grid">
+        <div>
+          <h3 style="font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 16px;">Project Overview & Objective
+          </h3>
+          <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+            This interactive educational platform was developed to investigate the intersection of digital technology,
+            meteorological sensors, and environmental science. By visualizing how temperature anomalies and rainfall
+            variability
+            are monitored, the project equips students with practical tools to understand climate dynamics and
+            communicate environmental challenges effectively.
+          </p>
+          <p style="color: var(--text-secondary); line-height: 1.7;">
+            Designed to accompany a structured Continuous Assessment (CA) video presentation, every feature—from the
+            Canvas rain and thunderstorm
+            simulator to the multi-station time-series graphs—is fully functional, accessible, and grounded in standard
+            meteorological principles.
+          </p>
+        </div>
+
+        <div class="project-details-list">
+          <div class="project-detail-item">
+            <span class="detail-label">Project Name</span>
+            <span class="detail-val detail-val-highlight">Digital Climate Change Monitoring: Tracking Temperature and
+              Rainfall Trends</span>
+          </div>
+
+          <div class="project-detail-item">
+            <span class="detail-label">Subject</span>
+            <span class="detail-val">Environmental Studies</span>
+          </div>
+
+          <div class="project-detail-item">
+            <span class="detail-label">Course Code</span>
+            <span class="detail-val">CHE 110 (Continuous Assessment CA1)</span>
+          </div>
+
+          <div class="project-detail-item">
+            <span class="detail-label">Project Type</span>
+            <span class="detail-val">Interactive Educational Website</span>
+          </div>
+
+          <div class="project-detail-item">
+            <span class="detail-label">Created By</span>
+            <span class="detail-val">Environmental Studies Student</span>
+          </div>
+
+          <div class="project-detail-item">
+            <span class="detail-label">Institution</span>
+            <span class="detail-val">College of Technology & Environmental Sciences</span>
+          </div>
+
+          <div class="project-detail-item">
+            <span class="detail-label">Tech Stack</span>
+            <span class="detail-val">HTML5 • CSS3 • JavaScript • Chart.js • HTML5 Canvas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 14: DARK-GREEN FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <span style="font-size:1.6rem;">🌱</span>
+            <h3 style="margin-bottom:0;">Digital Climate Change Monitoring</h3>
+          </div>
+          <p>
+            An interactive educational platform designed for CHE 110 Environmental Studies, demonstrating how digital
+            sensors,
+            satellite telemetry, and data visualization advance global climate awareness.
+          </p>
+          <div class="footer-quote">
+            “Understanding our climate today helps us protect our environment tomorrow.”
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#climate-change">About Climate Change</a></li>
+            <li><a href="#temperature">Temperature Monitoring</a></li>
+            <li><a href="#rainfall">Rainfall & Weather Simulation</a></li>
+            <li><a href="#monitoring">Central Telemetry Dashboard</a></li>
+            <li><a href="#technology">Digital Monitoring Technology</a></li>
+            <li><a href="#solutions">Solutions & Sustainability</a></li>
+            <li><a href="#quiz">Climate Awareness Quiz</a></li>
+            <li><a href="#about">About Project</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Academic Details</h4>
+          <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 12px;">
+            <strong>Course:</strong> CHE 110 - Environmental Studies CA1<br>
+            <strong>Project:</strong> Digital Climate Monitoring<br>
+            <strong>Format:</strong> Web Application & Video Presentation
+          </p>
+          <div style="margin-top: 16px;">
+            <a href="#disclaimer" class="trigger-disclaimer"
+              style="font-size: 0.82rem; color: #86efac; text-decoration: underline;">
+              Sample Data Policy Notice
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>Digital Climate Change Monitoring: Tracking Temperature and Rainfall Trends</strong>. All
+          rights reserved.
+        </div>
+        <div>
+          Built for College Environmental Studies CA1 • Pure HTML5, CSS3 & JavaScript
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
